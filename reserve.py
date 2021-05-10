@@ -20,9 +20,8 @@ resson = import_module("resson.r" + file_import)
 #日時を計算する
 import time
 import datetime
+import timedelta
 from dateutil.parser import parse
-#import pandas as pd
-
 
 #sys.exit()
 
@@ -32,10 +31,28 @@ password = "kutu0427"
 reserve_string = "reserve-form"
 
 string = resson.string
-s_date = resson.s_date
-e_date = resson.e_date
+#s_date = resson.s_date
+#e_date = resson.e_date
 pos = resson.pos
 
+#7日後を計算しておく
+today = datetime.datetime.now()
+days_later_7 = today + datetime.timedelta(days=7)
+
+#ressonでレッスン日時が記載されていない場合は1週間後
+if hasattr(resson,"s_date"):
+  s_date = resson.s_date
+else:
+  s_date = days_later_7.strftime('%Y-%m-%d')
+
+if hasattr(resson,"e_date"):
+  e_date = resson.e_date
+else:
+  e_date = days_later_7.strftime('%Y-%m-%d')
+
+#print(s_date)
+#print(e_date)
+#sys.exit()
 #Session接続
 ses = rq.Session()
 
