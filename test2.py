@@ -78,8 +78,9 @@ dt_s_reserve = dt_today + ' ' + resson.time_s_reserve
 ut_s_reserve = int(parse(dt_s_reserve).timestamp())
 print(dt_s_reserve)
 print(ut_s_reserve)
-#待ち時間(秒)
+#待ち時間(秒) 1秒プラスしないと早すぎる
 wait_seconds = ut_s_reserve - ut_now + 1
+#wait_seconds = ut_s_reserve - ut_now + 0
 print(wait_seconds)
 
 time.sleep(wait_seconds)
