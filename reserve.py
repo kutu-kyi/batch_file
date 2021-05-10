@@ -39,34 +39,40 @@ pos = resson.pos
 #Session接続
 ses = rq.Session()
 
-#ログイン
+#結果出力ディレクトリ作成
+import os
+dir_result = "./result" #ディレクトリ名名
+if not os.path.exists(dir_result):  #ディレクトリがなかったら
+    os.mkdir(dir_result)            #作成したいディレクトリを作成
+
+##### ログイン処理 #####
 url = "https://i.tipness.co.jp/i/auth/login"
 params = {"login_id":login_id, "login_pass" : password,"auto_login":1 }
 #sessionでPOST
 st = ses.post(url,params=params)
 print('login_status:'+str(st.status_code))
-with open('file.txt', 'w') as f:
+with open(dir_result + '/file.txt', 'w') as f:
   print(st.text, file=f)
 
 ##### 予約・確認画面 #####
 url2 = "https://i.tipness.co.jp/i/reservation/"
 st2 = ses.get(url2)
 print('login_status:'+str(st2.status_code))
-with open('file2.txt', 'w') as f:
+with open(dir_result + '/file2.txt', 'w') as f:
   print(st2.text, file=f)
 
 ##### レッスン予約サービス予約画面 #####
 url3 = "https://i.tipness.co.jp/i/rsv3/?type=4"
 st3 = ses.get(url3)
 print('login_status:'+str(st3.status_code))
-with open('file3.txt', 'w') as f:
+with open(dir_result + '/file3.txt', 'w') as f:
   print(st3.text, file=f)
 
 ##### レッスン予約サービス予約画面 #####
 url4 = "https://i.tipness.co.jp/i/rsv3/form"
 st4 = ses.get(url4)
 print('login_status:'+str(st4.status_code))
-with open('file4.txt', 'w') as f:
+with open(dir_result + '/file4.txt', 'w') as f:
   print(st4.text, file=f)
 
 ##### 検索画面(検索前に時間までsleep) #####
@@ -95,7 +101,7 @@ params5 = {
 }
 st5 = ses.post(url5,params5)
 print('login_status:'+str(st5.status_code))
-with open('file5.txt', 'w') as f:
+with open(dir_result + '/file5.txt', 'w') as f:
   print(st5.text, file=f)
 
 ##### 検索結果画面 #####
@@ -106,7 +112,7 @@ next_link = (RES.parent.parent.parent.find("p", recursive=False).find("a", recur
 url6 = "https://i.tipness.co.jp/i/rsv3/" + next_link
 st6 = ses.get(url6)
 print('login_status:'+str(st6.status_code))
-with open('file6.txt', 'w') as f:
+with open(dir_result + '/file6.txt', 'w') as f:
   print(st6.text, file=f)
 
 ##### レッスン予約サービス予約 #####
@@ -122,7 +128,7 @@ params7 = {
 }
 st7 = ses.post(url7,params7)
 print('login_status:'+str(st7.status_code))
-with open('file7.txt', 'w') as f:
+with open(dir_result + '/file7.txt', 'w') as f:
   print(st7.text, file=f)
 
 ##### 席選ぶ画面 #####
@@ -132,7 +138,7 @@ params8 = {
 }
 st8 = ses.post(url8,params8)
 print('login_status:'+str(st8.status_code))
-with open('file8.txt', 'w') as f:
+with open(dir_result + '/file8.txt', 'w') as f:
   print(st8.text, file=f)
 
 
@@ -148,8 +154,8 @@ params9 = {
   "email":1,
   "password":password,
 }
-st9 = ses.post(url9,params9)
-print('login_status:'+str(st9.status_code))
-with open('file9.txt', 'w') as f:
-  print(st9.text, file=f)
+#st9 = ses.post(url9,params9)
+#print('login_status:'+str(st9.status_code))
+#with open(dir_result + '/file9.txt', 'w') as f:
+#  print(st9.text, file=f)
 

@@ -1,0 +1,5 @@
+.idea
+.python-version
+resson/__pycache__/
+resson/__pycache__/*
+result/
