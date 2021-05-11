@@ -50,15 +50,16 @@ if hasattr(resson,"e_date"):
 else:
   e_date = days_later_7.strftime('%Y-%m-%d')
 
-#print(s_date)
-#print(e_date)
 #sys.exit()
+
 #Session接続
 ses = rq.Session()
 
 #結果出力ディレクトリ作成
 import os
-dir_result = "./result" #ディレクトリ名名
+import os.path
+#dir_result = "./result" #ディレクトリ名
+dir_result = os.path.dirname(os.path.abspath(__file__)) + "/result"
 if not os.path.exists(dir_result):  #ディレクトリがなかったら
     os.mkdir(dir_result)            #作成したいディレクトリを作成
 
