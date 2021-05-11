@@ -171,8 +171,8 @@ params9 = {
   "email":1,
   "password":password,
 }
-#st9 = ses.post(url9,params9)
-#print('login_status:'+str(st9.status_code))
-#with open(dir_result + '/file9.txt', 'w') as f:
-#  print(st9.text, file=f)
+st9 = ses.post(url9,params9)
+print('login_status:'+str(st9.status_code))
+with open(dir_result + '/file9.txt', 'w') as f:
+  print(st9.text, file=f)
 
