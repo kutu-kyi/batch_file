@@ -1,6 +1,6 @@
-#テスト用
+#宮前平テスト用
 
-shop_id = "SHP035"      #新百合ヶ丘店
-string = "やさしいHIPHOP"
-time_s_reserve = "16:10:00"
+shop_id = "SHP074"
+string = "筋活体操"
+time_s_reserve = "10:40:00"
 pos = "1:2"

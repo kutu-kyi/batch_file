@@ -64,6 +64,23 @@ if not os.path.exists(dir_result):  #ディレクトリがなかったら
     os.mkdir(dir_result)            #作成したいディレクトリを作成
 
 ##### ログイン処理 #####
+#現在時刻のUNIXタイムスタンプ
+ut_now = int(time.time())
+dt_now = datetime.datetime.now()
+dt_today = dt_now.strftime('%Y-%m-%d')
+dt_s_reserve = dt_today + ' ' + resson.time_s_reserve
+ut_s_reserve = int(parse(dt_s_reserve).timestamp())
+ut_s_login = ut_s_reserve - 300;
+#ut_s_login = int(parse(dt_s_login).timestamp())
+print(ut_s_reserve)
+print(ut_s_login)
+
+#待ち時間(秒)
+wait_seconds = ut_s_login - ut_now
+print(wait_seconds)
+
+time.sleep(wait_seconds)
+
 url = "https://i.tipness.co.jp/i/auth/login"
 params = {"login_id":login_id, "login_pass" : password,"auto_login":1 }
 #sessionでPOST
