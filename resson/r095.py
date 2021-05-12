@@ -1,6 +1,6 @@
 #宮前平テスト用
 
 shop_id = "SHP074"
-string = "やさしいHIPHOP"
-time_s_reserve = "13:10:00"
+string = "ZUMBA"
+time_s_reserve = "14:25:00"
 pos = "1:8"

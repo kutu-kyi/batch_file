@@ -79,7 +79,8 @@ print(ut_s_login)
 wait_seconds = ut_s_login - ut_now
 print(wait_seconds)
 
-time.sleep(wait_seconds)
+if(wait_seconds > 0):
+  time.sleep(wait_seconds)
 
 url = "https://i.tipness.co.jp/i/auth/login"
 params = {"login_id":login_id, "login_pass" : password,"auto_login":1 }
@@ -124,7 +125,10 @@ wait_seconds = ut_s_reserve - ut_now + 1
 #wait_seconds = ut_s_reserve - ut_now + 0
 print(wait_seconds)
 
-time.sleep(wait_seconds)
+if(wait_seconds > 0):
+  time.sleep(wait_seconds)
+
+#time.sleep(wait_seconds)
 
 url5 = "https://i.tipness.co.jp/i/rsv3/search"
 params5 = {
