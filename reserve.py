@@ -59,7 +59,8 @@ ses = rq.Session()
 import os
 import os.path
 #dir_result = "./result" #ディレクトリ名
-dir_result = os.path.dirname(os.path.abspath(__file__)) + "/result"
+#dir_result = os.path.dirname(os.path.abspath(__file__)) + "/result"
+dir_result = "~/home/kutu/result"
 if not os.path.exists(dir_result):  #ディレクトリがなかったら
     os.mkdir(dir_result)            #作成したいディレクトリを作成
 
