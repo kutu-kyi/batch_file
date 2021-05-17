@@ -4,3 +4,4 @@ shop_id = "SHP074"
 string = "筋活体操"
 time_s_reserve = "10:40:00"
 pos = "1:2"
+page = 2

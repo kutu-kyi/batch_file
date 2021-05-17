@@ -50,6 +50,12 @@ if hasattr(resson,"e_date"):
 else:
   e_date = days_later_7.strftime('%Y-%m-%d')
 
+#pageが記載されていない場合ページ設定なし
+if hasattr(resson,"page"):
+  page = resson.page
+else:
+  page = 0
+
 #sys.exit()
 
 #Session接続
@@ -153,6 +159,8 @@ st6 = ses.get(url6)
 print('login_status:'+str(st6.status_code))
 with open(dir_result + '/file6.txt', 'w') as f:
   print(st6.text, file=f)
+
+sys.exit()
 
 ##### レッスン予約サービス予約 #####
 SOUP = BeautifulSoup(st6.text, "html.parser")
