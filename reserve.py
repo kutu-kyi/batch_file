@@ -39,6 +39,9 @@ pos = resson.pos
 today = datetime.datetime.now()
 days_later_7 = today + datetime.timedelta(days=7)
 
+dt_days_later_7 = days_later_7.strftime('%Y-%m-%d %H:%M:%S')
+ut_days_later_7 = int(parse(dt_days_later_7).timestamp())
+
 #ressonでレッスン日時が記載されていない場合は1週間後
 if hasattr(resson,"s_date"):
   s_date = resson.s_date
@@ -49,6 +52,10 @@ if hasattr(resson,"e_date"):
   e_date = resson.e_date
 else:
   e_date = days_later_7.strftime('%Y-%m-%d')
+
+print("検索開始日:")
+print(s_date + "から")
+print(e_date + "まで")
 
 #pageが記載されていない場合ページ設定なし
 if hasattr(resson,"page"):
@@ -72,18 +79,26 @@ if not os.path.exists(dir_result):  #ディレクトリがなかったら
 ##### ログイン処理 #####
 #現在時刻のUNIXタイムスタンプ
 ut_now = int(time.time())
-dt_now = datetime.datetime.now()
-dt_today = dt_now.strftime('%Y-%m-%d')
+data_now = datetime.datetime.now()
+dt_today = data_now.strftime('%Y-%m-%d')
+dt_now = data_now.strftime('%Y-%m-%d %H:%M:%S')
 dt_s_reserve = dt_today + ' ' + resson.time_s_reserve
 ut_s_reserve = int(parse(dt_s_reserve).timestamp())
 ut_s_login = ut_s_reserve - 300;
 #ut_s_login = int(parse(dt_s_login).timestamp())
-print(ut_s_reserve)
-print(ut_s_login)
+print("今日:" + dt_today)
+print("今:" + dt_now)
+print("今のタイムスタンプ:" + str(ut_now))
+print("7日後の日時:" + dt_days_later_7)
+print("7日後のタイムスタンプ:" + str(ut_days_later_7))
+print("予約開始日時:" + dt_s_reserve)
+print("予約開始タイムスタンプ:" + str(ut_s_reserve))
+print("ログイン予定タイムスタンプ:" + str(ut_s_login))
+print("検索開始日 + 現在時刻:" + s_date + data_now.strftime(' %H:%M:%S'))
 
 #待ち時間(秒)
 wait_seconds = ut_s_login - ut_now
-print(wait_seconds)
+print("予約まで" + str(wait_seconds) + "秒")
 
 if(wait_seconds > 0):
   time.sleep(wait_seconds)
@@ -136,7 +151,8 @@ if(wait_seconds > 0):
 
 #time.sleep(wait_seconds)
 
-url5 = "https://i.tipness.co.jp/i/rsv3/search"
+#url5 = "https://i.tipness.co.jp/i/rsv3/search"
+url5 = "https://i.tipness.co.jp/i/rsv3/search?p=2&v=10"
 params5 = {
   "p":0,
   "v" : 10,
