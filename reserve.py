@@ -57,13 +57,19 @@ print("検索開始日:")
 print(s_date + "から")
 print(e_date + "まで")
 
-#pageが記載されていない場合ページ設定なし
+#ページを取得
 if hasattr(resson,"page"):
   page = resson.page
 else:
   page = 0
 
+print(str(page) + "ページ目")
 #sys.exit()
+
+#店舗ID取得
+shop_id = resson.shop_id
+
+print("店舗ID:" + str(shop_id))
 
 #Session接続
 ses = rq.Session()
@@ -98,7 +104,7 @@ print("検索開始日 + 現在時刻:" + s_date + data_now.strftime(' %H:%M:%S'
 
 #待ち時間(秒)
 wait_seconds = ut_s_login - ut_now
-print("予約まで" + str(wait_seconds) + "秒")
+print("ログインまで" + str(wait_seconds) + "秒")
 
 if(wait_seconds > 0):
   time.sleep(wait_seconds)
@@ -151,12 +157,15 @@ if(wait_seconds > 0):
 
 #time.sleep(wait_seconds)
 
-#url5 = "https://i.tipness.co.jp/i/rsv3/search"
-url5 = "https://i.tipness.co.jp/i/rsv3/search?p=2&v=10"
+if page > 0:
+  url5 = "https://i.tipness.co.jp/i/rsv3/search?p=" + str(page + 1) + "&v=10"
+else:
+  url5 = "https://i.tipness.co.jp/i/rsv3/search"
+
 params5 = {
   "p":0,
   "v" : 10,
-  "cond[shop_id]":resson.shop_id,
+  "cond[shop_id]":shop_id,
   "cond[s_date]":s_date,
   "cond[e_date]":e_date,
 }
@@ -176,7 +185,7 @@ print('login_status:'+str(st6.status_code))
 with open(dir_result + '/file6.txt', 'w') as f:
   print(st6.text, file=f)
 
-sys.exit()
+#sys.exit()
 
 ##### レッスン予約サービス予約 #####
 SOUP = BeautifulSoup(st6.text, "html.parser")

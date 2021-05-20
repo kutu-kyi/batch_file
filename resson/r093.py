@@ -1,8 +1,9 @@
 #テスト用
 
-string = "ベリーダンスフィットネス"
+string = "ステップ１"
 shop_id = "SHP074"
-s_date = "2021-05-19"
-e_date = "2021-05-19"
-time_s_reserve = "14:55:00"
-pos = "1:5"
+s_date = "2021-05-24"
+e_date = "2021-05-24"
+time_s_reserve = "10:15:00"
+pos = "0:4"
+page = 2
