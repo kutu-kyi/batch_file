@@ -25,11 +25,23 @@ from dateutil.parser import parse
 
 #sys.exit()
 
-#検索文字列
-login_id = "work@kuttu.net"
-password = "kutu0427"
+#ログイン情報
+if hasattr(resson,"login_id"):
+  login_id = resson.login_id
+else:
+  login_id = "work@kuttu.net"
+
+if hasattr(resson,"password"):
+  password = resson.password
+else:
+  password = "kutu0427"
+
+
+
+
 reserve_string = "reserve-form"
 
+#検索文字列
 string = resson.string
 #s_date = resson.s_date
 #e_date = resson.e_date
