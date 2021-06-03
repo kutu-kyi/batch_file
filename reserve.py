@@ -53,6 +53,12 @@ if hasattr(resson,"e_date"):
 else:
   e_date = days_later_7.strftime('%Y-%m-%d')
 
+#レッスン開始時刻が記載されていない場合は0時(既に経過している時間と判断)
+if hasattr(resson,"time_s_reserve"):
+  time_s_reserve = resson.time_s_reserve
+else:
+  time_s_reserve = "00:00:00"
+
 print("検索開始日:")
 print(s_date + "から")
 print(e_date + "まで")
@@ -88,7 +94,8 @@ ut_now = int(time.time())
 data_now = datetime.datetime.now()
 dt_today = data_now.strftime('%Y-%m-%d')
 dt_now = data_now.strftime('%Y-%m-%d %H:%M:%S')
-dt_s_reserve = dt_today + ' ' + resson.time_s_reserve
+#dt_s_reserve = dt_today + ' ' + resson.time_s_reserve
+dt_s_reserve = dt_today + ' ' + time_s_reserve
 ut_s_reserve = int(parse(dt_s_reserve).timestamp())
 ut_s_login = ut_s_reserve - 300;
 #ut_s_login = int(parse(dt_s_login).timestamp())
@@ -143,7 +150,8 @@ with open(dir_result + '/file4.txt', 'w') as f:
 ut_now = int(time.time())
 dt_now = datetime.datetime.now()
 dt_today = dt_now.strftime('%Y-%m-%d')
-dt_s_reserve = dt_today + ' ' + resson.time_s_reserve
+#dt_s_reserve = dt_today + ' ' + resson.time_s_reserve
+dt_s_reserve = dt_today + ' ' + time_s_reserve
 ut_s_reserve = int(parse(dt_s_reserve).timestamp())
 print(dt_s_reserve)
 print(ut_s_reserve)
