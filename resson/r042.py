@@ -3,4 +3,4 @@
 shop_id = "SHP026"
 string = "UNIVERSAL MUSIC WORLD DANCE"
 time_s_reserve = "20:10:00"
-pos = "1:4"
+pos = "1:6"

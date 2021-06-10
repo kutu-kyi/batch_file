@@ -1,6 +1,7 @@
-#土曜日/喜多見/大蔵先生/HIPHOP JAZZ
+#月曜日/宮前平/すみかさん/ステップ(緊急事態宣言時)
 
-shop_id = "SHP034"
-string = "HIPHOP JAZZ45"
-time_s_reserve = "15:30:00"
-pos = "1:4"
+shop_id = "SHP074"
+string = "ステップ１"
+time_s_reserve = "20:10:00"
+pos = "1:2"
+page = 2

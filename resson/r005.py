@@ -1,6 +1,6 @@
-#水曜日/宮前平/HIROさん/ユニバ(緊急事態時)
+#日曜日/木場/小川先生/ユニバ
 
+shop_id = "SHP036"
 string = "UNIVERSAL MUSIC WORLD DANCE"
-shop_id = "SHP074"
-time_s_reserve = "20:10:00"
-pos = "1:5"
+time_s_reserve = "12:55:00"
+pos = "1:3"

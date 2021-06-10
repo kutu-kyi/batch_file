@@ -1,6 +1,6 @@
-#日曜日/宮前平/こいっしー/ユニバ
+#日曜日/木場/小川先生/HIPHOP45
 
-shop_id = "SHP074"      #宮前平店
-string = "UNIVERSAL MUSIC WORLD DANCE"
-time_s_reserve = "11:10:00"
-pos = "1:6"
+shop_id = "SHP036"
+string = "HIPHOP45"
+time_s_reserve = "11:55:00"
+pos = "1:4"

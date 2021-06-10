@@ -1,6 +1,6 @@
-#土曜日/宮崎台/小川先生/ユニバ
+#日曜日/宮前平/こいっしー/ユニバ
 
-shop_id = "SHP026"      #宮崎台店
+shop_id = "SHP074"
 string = "UNIVERSAL MUSIC WORLD DANCE"
-time_s_reserve = "13:55:00"
-pos = "1:4"
+time_s_reserve = "11:10:00"
+pos = "1:6"

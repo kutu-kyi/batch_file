@@ -1,6 +1,7 @@
-#土曜日/新百合ヶ丘/めりさん/ユニバ
+#日曜日/三軒茶屋/HIROさん/オリジナル
 
-shop_id = "SHP035"      #新百合ヶ丘店
-string = "UNIVERSAL MUSIC WORLD DANCE"
-time_s_reserve = "12:30:00"
-pos = "1:2"
+string = "やさしいHIPHOP"
+shop_id = "SHP051"
+time_s_reserve = "18:10:00"
+pos = "3:5"
+page = 2
