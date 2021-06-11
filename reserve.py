@@ -43,8 +43,11 @@ reserve_string = "reserve-form"
 
 #検索文字列
 string = resson.string
-#s_date = resson.s_date
-#e_date = resson.e_date
+if hasattr(resson,"instructor"):
+  instructor = resson.instructor
+else:
+  instructor = ""
+
 pos = resson.pos
 
 #7日後を計算しておく
@@ -76,12 +79,12 @@ print(s_date + "から")
 print(e_date + "まで")
 
 #ページを取得
-if hasattr(resson,"page"):
-  page = resson.page
-else:
-  page = 0
+#if hasattr(resson,"page"):
+#  page = resson.page
+#else:
+#  page = 0
 
-print(str(page) + "ページ目")
+#print(str(page) + "ページ目")
 #sys.exit()
 
 #店舗ID取得
@@ -177,10 +180,11 @@ if(wait_seconds > 0):
 
 #time.sleep(wait_seconds)
 
-if page > 0:
-  url5 = "https://i.tipness.co.jp/i/rsv3/search?p=" + str(page + 1) + "&v=10"
-else:
-  url5 = "https://i.tipness.co.jp/i/rsv3/search"
+#if page > 0:
+#  url5 = "https://i.tipness.co.jp/i/rsv3/search?p=" + str(page + 1) + "&v=10"
+#else:
+#  url5 = "https://i.tipness.co.jp/i/rsv3/search"
+url5 = "https://i.tipness.co.jp/i/rsv3/search"
 
 params5 = {
   "p":0,
@@ -188,6 +192,7 @@ params5 = {
   "cond[shop_id]":shop_id,
   "cond[s_date]":s_date,
   "cond[e_date]":e_date,
+  "cond[instructor]":instructor,
 }
 st5 = ses.post(url5,params5)
 print('login_status:'+str(st5.status_code))
@@ -233,7 +238,7 @@ print('login_status:'+str(st8.status_code))
 with open(dir_result + '/file8.txt', 'w') as f:
   print(st8.text, file=f)
 
-
+#sys.exit()
 ##### 確認画面 #####
 SOUP = BeautifulSoup(st8.text, "html.parser")
 RES = SOUP.find(id="reserve-form")
