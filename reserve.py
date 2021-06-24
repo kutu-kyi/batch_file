@@ -4,6 +4,7 @@ import urllib
 import urllib.parse
 import urllib.request
 import urllib.error
+#import json
 import requests as rq
 
 from bs4 import BeautifulSoup
@@ -16,6 +17,7 @@ file_import = args[1]
 #レッスンファイルを読み込む
 from importlib import import_module
 resson = import_module("resson.r" + file_import)
+function = import_module("function")
 
 #日時を計算する
 import time
@@ -229,6 +231,14 @@ with open(dir_result + '/file7.txt', 'w') as f:
   print(st7.text, file=f)
 
 ##### 席選ぶ画面 #####
+
+#ポジションのステータスを取得
+position_enables = function.get_position_enable(st7.text)
+#print (position_enables)
+
+#ステータスが"enable"になっているポジションを選ぶ
+#pos = function.check_enable(pos)
+
 url8 = "https://i.tipness.co.jp/i/rsv3/confirm"
 params8 = {
   "pos":pos,
@@ -245,6 +255,8 @@ RES = SOUP.find(id="reserve-form")
 input_array = RES.find_all("input")
 hash_string = input_array[0].get("value")
 
+#sys.exit()
+
 url9 = "https://i.tipness.co.jp/i/rsv3/reserve"
 params9 = {
   "hash":hash_string,
@@ -255,4 +267,5 @@ st9 = ses.post(url9,params9)
 print('login_status:'+str(st9.status_code))
 with open(dir_result + '/file9.txt', 'w') as f:
   print(st9.text, file=f)
+
 
