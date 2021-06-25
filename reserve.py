@@ -236,8 +236,9 @@ with open(dir_result + '/file7.txt', 'w') as f:
 position_enables = function.get_position_enable(st7.text)
 #print (position_enables)
 
-#ステータスが"enable"になっているポジションを選ぶ
-#pos = function.check_enable(pos)
+#ポジションのステータスが"enable"かチェック。"enable"でなければ"enable"になっているポジションを選ぶ
+pos = function.check_enable(pos,position_enables)
+#print(pos)
 
 url8 = "https://i.tipness.co.jp/i/rsv3/confirm"
 params8 = {
