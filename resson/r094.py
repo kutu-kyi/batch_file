@@ -1,6 +1,9 @@
-#宮前平テスト用
+#テスト用(宮前平)
 
 shop_id = "SHP074"
-string = "ANIMAL ENERGY30"
-time_s_reserve = "15:10:00"
-pos = "1:4"
+string = "ZUMBA"
+instructor = "Ｊｕｎｋｏ"
+#s_date = "2021-07-03"
+#e_date = "2021-07-03"
+time_s_reserve = "14:25:00"
+pos = "3:5"
