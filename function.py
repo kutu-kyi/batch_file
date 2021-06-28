@@ -26,7 +26,8 @@ def get_position_enable(html_text):
 #  print(html_data)
 #  sys.exit()
   # "RsvApp.mapData"と"="と";"と半角スペースを削除
-  html_data = html_line.replace("RsvApp.mapData = ", "")
+#  html_data = html_line.replace("RsvApp.mapData = ", "")
+  html_data = html_data.replace("RsvApp.mapData = ", "")
   html_data = html_data.replace("=", "")
   html_data = html_data.replace(";", "")
   html_json = html_data.replace(" ", "")
