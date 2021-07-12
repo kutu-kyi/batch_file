@@ -1,6 +1,10 @@
 #宮前平テスト
 
-string = "ZUMBA"
 shop_id = "SHP074"
-time_s_reserve = "13:25:00"
+string = "BAILA BAILA45"
+instructor = "こいし　みつこ"
+#s_date = "2021-06-13"
+#e_date = "2021-06-13"
+time_s_reserve = "12:25:00"
 pos = "1:5"
+

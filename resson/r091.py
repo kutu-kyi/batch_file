@@ -1,6 +1,9 @@
 #宮前平テスト
 
-string = "太極拳45"
 shop_id = "SHP074"
-time_s_reserve = "10:55:00"
+string = "ZUMBA"
+instructor = "こいし　みつこ"
+#s_date = "2021-06-13"
+#e_date = "2021-06-13"
+time_s_reserve = "14:45:00"
 pos = "1:5"
