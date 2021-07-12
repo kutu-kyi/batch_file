@@ -1,0 +1,3 @@
+which python
+cd ~/c/www/batch_file/
+/home/kutu/.pyenv/shims/python reserve.py 099
