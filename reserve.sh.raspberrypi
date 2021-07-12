@@ -1,0 +1,2 @@
+cd /home/pi/Public/batch_file
+/usr/bin/python3 reserve.py $1
