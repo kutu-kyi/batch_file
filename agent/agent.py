@@ -15,9 +15,9 @@ args = sys.argv
 file_import = args[1]
 
 #レッスンファイルを読み込む
-from importlib import import_module
-resson = import_module("resson.r" + file_import)
-function = import_module("function")
+#from importlib import import_module
+#resson = import_module("resson.r" + file_import)
+#function = import_module("function")
 
 #日時を計算する
 import time
@@ -238,7 +238,7 @@ position_enables = function.get_position_enable(st7.text)
 
 #ポジションのステータスが"enable"かチェック。"enable"でなければ"enable"になっているポジションを選ぶ
 pos = function.check_enable(pos,position_enables)
-print("席:" + str(pos))
+#print(pos)
 
 url8 = "https://i.tipness.co.jp/i/rsv3/confirm"
 params8 = {
@@ -253,25 +253,6 @@ with open(dir_result + '/file8.txt', 'w') as f:
 ##### 確認画面 #####
 SOUP = BeautifulSoup(st8.text, "html.parser")
 RES = SOUP.find(id="reserve-form")
-
-##### RESがNONEの場合、取得出来るまで実行 #####
-while RES == None:
-  print("席取り失敗")
-  pos = function.check_enable(pos,position_enables)
-  print("席:" + str(pos))
-  url8 = "https://i.tipness.co.jp/i/rsv3/confirm"
-  params8 = {
-    "pos":pos,
-  }
-  st8 = ses.post(url8,params8)
-  print('login_status:'+str(st8.status_code))
-  with open(dir_result + '/file8.txt', 'w') as f:
-    print(st8.text, file=f)
-
-  ##### 確認画面 #####
-  SOUP = BeautifulSoup(st8.text, "html.parser")
-  RES = SOUP.find(id="reserve-form")
-
 input_array = RES.find_all("input")
 hash_string = input_array[0].get("value")
 
