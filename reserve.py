@@ -255,7 +255,9 @@ SOUP = BeautifulSoup(st8.text, "html.parser")
 RES = SOUP.find(id="reserve-form")
 
 ##### RESがNONEの場合、取得出来るまで実行 #####
+RES_count = 0
 while RES == None:
+  RES_count+=1
   print("席取り失敗")
   pos = function.check_enable(pos,position_enables)
   print("席:" + str(pos))
@@ -271,6 +273,10 @@ while RES == None:
   ##### 確認画面 #####
   SOUP = BeautifulSoup(st8.text, "html.parser")
   RES = SOUP.find(id="reserve-form")
+
+  ##### 10回トライしていたら終了 #####
+  if RES_count > 10:
+    break
 
 input_array = RES.find_all("input")
 hash_string = input_array[0].get("value")
