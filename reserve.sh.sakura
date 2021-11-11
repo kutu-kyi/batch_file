@@ -1,0 +1,2 @@
+cd /home/kutu/pythonProject/batch_file
+/home/kutu/pythonProject/batch/bin/python3 reserve.py $1
