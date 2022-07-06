@@ -1,9 +1,9 @@
-#祝日スケジュール/喜多見/彩さん/ZONE
+#祝日スケジュール/新百合ヶ丘/マッキーさん/イベント
 
-shop_id = "SHP034"
-string = "【CARDIOトレーニング】ZONE"
-instructor = "高橋　彩"
+shop_id = "SHP035"
+string = "【イベント】HIPHOP60andダンスパフォーマンスショー"
+instructor = "槙原　ゆか里"
 #s_date = "2021-06-13"
 #e_date = "2021-06-13"
-time_s_reserve = "13:05:00"
+time_s_reserve = "16:45:00"
 pos = "1:4"
